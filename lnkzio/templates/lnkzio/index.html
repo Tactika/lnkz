@@ -6,10 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lnkz.Io</title>
     <link rel="stylesheet" type="text/css" href="{% static 'lnkzio/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'lnkzio/bootstrap.css' %}">
 </head>
 <body>
-    <div>
-        <h1>Lnkz.Io</h1>
+    <div class="bg-light">
+        <div class="container">
+            <div class="py-5 text-center container">
+                    <header id="header">
+                        <h1 class="h3 mb-3 fw-normal">Lnkz</h1>
+                    </header>
+                    <form method="post">
+                        {% csrf_token %}
+                            <div class="input-group input-group-lg">
+                                <input type="url" name="url" class="form-control form-control-lg"/>
+                                <button type="submit" formaction="{% url 'lnkzio:shorturl' %}" class="btn btn-dark btn-primary btn-lg">Lnkz It</button>
+                            </form>
+                            <div>
+                        </div>
+                    </div>
+                 
+                <div>
+                    <ul>
+                        {% for code in ShortenedURL %}
+                        <li><a href="http://www.lnkz.io/{{ ShortenedURL.code }}/">http://www.lnkz.io/{{ ShortenedURL.code }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                </div>
+        </div>
     </div>
+    <script src="{% static 'lnkzio/bootstrap.js' %}></script>
 </body>
 </html>

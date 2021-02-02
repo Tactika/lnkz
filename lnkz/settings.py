@@ -26,19 +26,21 @@ SECRET_KEY = '97qc4v6wv%f9rk07ljs5uvzsasn^__d#mlm!x0m+f))!1p)n+n'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com', '.amazonaws.com']
+ALLOWED_HOSTS = ['127.0.0.1', '.amazonaws.com']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'lnkzio',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # URL Shortener
+    'lnkzio',
 ]
 
 MIDDLEWARE = [
@@ -56,7 +58,7 @@ ROOT_URLCONF = 'lnkz.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
